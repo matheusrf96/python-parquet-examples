@@ -9,7 +9,8 @@ filters = [
     ("status", "!=", "R"),
 ]
 
-table = pq.read_table("../files/example.parquet", filters=filters)
+FILE_PATH = "../files/example.parq"
+table = pq.read_table(FILE_PATH, filters=filters)
 
 # Match strings against SQL-style LIKE pattern
 filtered_table = table.filter(pc.match_like(table["series_id"], "BOPQ.S06AD0000000%"))

@@ -19,4 +19,5 @@ def describe_parquet(file_path: str) -> None:
         print(f"\t{column}")
 
 
-describe_parquet("../files/example.parquet")
+FILE_PATH = "../files/example.parq"
+describe_parquet(FILE_PATH)
