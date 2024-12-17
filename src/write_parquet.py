@@ -30,7 +30,7 @@ def retrieve_data_from_csv() -> Dict:
             data["series_id"].append(row[0])
             data["period"].append(row[1])
             data["data_value"].append(row[2] or "0")
-            data["suppressed"].append(row[3])
+            data["suppressed"].append(True if row[3] else False)
             data["status"].append(row[4])
             data["units"].append(row[5])
             data["magnitude"].append(row[6])
