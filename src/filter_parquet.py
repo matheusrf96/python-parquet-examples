@@ -1,15 +1,18 @@
 import pyarrow.parquet as pq
-
+import pyarrow.compute as pc
 
 # Filters: List of tuples
-# Filter Tuple: pos[0] == "column name", pos[1] == "operator", pos[2] == "value"
+# Filter Tuple (key, op, value): pos[0] == "column name", pos[1] == "operator", pos[2] == "value"  # noqa
 filters = [
-    ('period', '=', '2024.03'),
+    ("period", "==", "2024.03"),
     ("data_value", "<", "0"),
     ("status", "!=", "R"),
 ]
 
-table = pq.read_table('../files/example.parquet', filters=filters)
-filtered_df = table.to_pandas()
+table = pq.read_table("../files/example.parquet", filters=filters)
+
+# Match strings against SQL-style LIKE pattern
+filtered_table = table.filter(pc.match_like(table["series_id"], "BOPQ.S06AD0000000%"))
+filtered_df = filtered_table.to_pandas()
 
 print(filtered_df)
