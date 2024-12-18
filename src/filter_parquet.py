@@ -17,3 +17,5 @@ filtered_table = table.filter(pc.match_like(table["series_id"], "BOPQ.S06AD00000
 filtered_df = filtered_table.to_pandas()
 
 print(filtered_df)
+print()
+print(filtered_df.to_dict("records"))
