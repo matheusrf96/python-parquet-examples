@@ -8,21 +8,21 @@ from fastparquet import write
 
 def retrieve_data_from_csv() -> Dict:
     data = {
-        "cnpj_1": [],
-        "cnpj_2": [],
-        "cnpj_3": [],
-        "identificador_matriz_filial": [],
-        "nome_fantasia": [],
+        "prefixo_cnpj": [],
+        "indicador_cnpj": [],
+        "sufixo_cnpj": [],
+        "indicador_de_matriz_filial": [],
+        "razao_social": [],
         "situacao_cadastral": [],
         "data_situacao_cadastral": [],
         "motivo_situacao_cadastral": [],
         "nome_cidade_exterior": [],
-        "nome_pais": [],
-        "codigo_1": [],
-        "codigo_2": [],
-        "codigo_3": [],
-        "tipo_rua": [],
-        "rua": [],
+        "codigo_pais": [],
+        "data_inicio_atividade": [],
+        "cnae_fiscal_principal": [],
+        "cnae_fiscal_secundaria": [],
+        "tipo_logradouro": [],
+        "logradouro": [],
         "numero": [],
         "complemento": [],
         "bairro": [],
@@ -35,9 +35,9 @@ def retrieve_data_from_csv() -> Dict:
         "telefone_2": [],
         "ddd_fax": [],
         "telefone_fax": [],
-        "correio_eletronico": [],
-        "qualificacao_do_responsavel": [],
-        "capital_social": [],
+        "email": [],
+        "situacao_especial_da_empresa": [],
+        "data_da_situacao_especial": [],
     }
 
     print("reading csv lines")
@@ -45,21 +45,21 @@ def retrieve_data_from_csv() -> Dict:
     with open(FILE_PATH, newline="", encoding="latin-1") as csvfile:
         spamreader = csv.reader(csvfile, delimiter=";", quotechar="\"")
         for row in spamreader:
-            data["cnpj_1"].append(row[0])
-            data["cnpj_2"].append(row[1])
-            data["cnpj_3"].append(row[2])
-            data["identificador_matriz_filial"].append(row[3])
-            data["nome_fantasia"].append(row[4])
+            data["prefixo_cnpj"].append(row[0])
+            data["indicador_cnpj"].append(row[1])
+            data["sufixo_cnpj"].append(row[2])
+            data["indicador_de_matriz_filial"].append(row[3])
+            data["razao_social"].append(row[4])
             data["situacao_cadastral"].append(row[5])
             data["data_situacao_cadastral"].append(row[6])
             data["motivo_situacao_cadastral"].append(row[7])
             data["nome_cidade_exterior"].append(row[8])
-            data["nome_pais"].append(row[9])
-            data["codigo_1"].append(row[10])
-            data["codigo_2"].append(row[11])
-            data["codigo_3"].append(row[12])
-            data["tipo_rua"].append(row[13])
-            data["rua"].append(row[14])
+            data["codigo_pais"].append(row[9])
+            data["data_inicio_atividade"].append(row[10])
+            data["cnae_fiscal_principal"].append(row[11])
+            data["cnae_fiscal_secundaria"].append(row[12])
+            data["tipo_logradouro"].append(row[13])
+            data["logradouro"].append(row[14])
             data["numero"].append(row[15])
             data["complemento"].append(row[16])
             data["bairro"].append(row[17])
@@ -72,9 +72,9 @@ def retrieve_data_from_csv() -> Dict:
             data["telefone_2"].append(row[24])
             data["ddd_fax"].append(row[25])
             data["telefone_fax"].append(row[26])
-            data["correio_eletronico"].append(row[27])
-            data["qualificacao_do_responsavel"].append(row[28])
-            data["capital_social"].append(row[29])
+            data["email"].append(row[27])
+            data["situacao_especial_da_empresa"].append(row[28])
+            data["data_da_situacao_especial"].append(row[29])
 
     return data
 
