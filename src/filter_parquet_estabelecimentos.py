@@ -6,7 +6,7 @@ filters = [
     ("cnpj_1", "==", "64904295"),
 ]
 
-FILE_PATH = "../files/estabelecimentos/Estabelecimentos1.parq"
+FILE_PATH = "../files/estabelecimentos/Estabelecimentos1.parquet"
 table = pq.read_table(FILE_PATH, filters=filters)
 filtered_df = table.to_pandas()
 

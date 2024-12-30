@@ -9,7 +9,7 @@ filters = [
     ("status", "!=", "R"),
 ]
 
-FILE_PATH = "../files/example.parq"
+FILE_PATH = "../files/example.parquet"
 table = pq.read_table(FILE_PATH, filters=filters)
 
 # Match strings against SQL-style LIKE pattern

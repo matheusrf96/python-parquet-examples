@@ -11,6 +11,7 @@ python = "^3.12"
 fastparquet = "^2024.11.0"
 pandas = "^2.2.3"
 pyarrow = "^18.1.0"
+pydantic = "^2.10.4"
 
 
 [build-system]
